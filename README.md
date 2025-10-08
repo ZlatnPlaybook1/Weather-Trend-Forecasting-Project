@@ -9,25 +9,26 @@ This project focuses on analyzing global weather data to understand temperature 
 Weather-Trend-Forecasting-Project/
 │
 ├── data/
-│ ├── GlobalWeatherRepository.csv
-│ └── cleaned_normalized_weather.csv
+│   ├── GlobalWeatherRepository.csv
+│   └── cleaned_normalized_weather.csv
 │
 ├── notebooks/
-│ ├── 01_data_cleaning_and_preprocessing.ipynb
-│ ├── 02_eda_visualization.ipynb
-│ ├── 03_forecasting_models.ipynb
-│ └── 04_advanced_analysis_and_insights.ipynb
+│   ├── 01_data_cleaning_and_preprocessing.ipynb
+│   ├── 02_eda_visualization.ipynb
+│   ├── 03_forecasting_models.ipynb
+│   └── 04_advanced_analysis_and_insights.ipynb
 │
 ├── models/
-│ ├── random_forest_model.pkl
-│ ├── linear_regression_model.pkl
-│ └── gradient_boosting_model.pkl
+│   ├── random_forest_model.pkl
+│   ├── linear_regression_model.pkl
+│   └── gradient_boosting_model.pkl
 │
 ├── results/
-│ ├── evaluation_metrics.csv
-│ └── forecast_visualizations/
+│   ├── evaluation_metrics.csv
+│   └── forecast_visualizations/
 │
 └── README.md
+
 
 
 ---
@@ -81,7 +82,6 @@ Identified key feature types:
 ---
 
 ### 💾 Final Output
-- Exported the cleaned and normalized dataset to:
-- data/cleaned_normalized_weather.csv
-- - This dataset serves as the foundation for **EDA** and **forecasting models** developed in later notebooks.
+- Exported the cleaned and normalized dataset to: data/cleaned_normalized_weather.csv
+- This dataset serves as the foundation for **EDA** and **forecasting models** developed in later notebooks.
 
