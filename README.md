@@ -168,9 +168,9 @@ Scatter plot showing:
 
 ### 📈 Comparison of Detectors
 The notebook prints the count of anomalies found by each method: 
-  * 1. Isolation Forest anomalies: 667
-  * 2- Local Outlier Factor anomalies: 667
-  * 3- One-Class SVM anomalies: 666
+  1- Isolation Forest anomalies: 667
+  2- Local Outlier Factor anomalies: 667
+  3- One-Class SVM anomalies: 666
 
 ---
 
@@ -219,10 +219,8 @@ This notebook focuses on building and evaluating **machine learning models** to 
        'precip_mm', 'feels_like_celsius', 'visibility_km', 'uv_index'
    ]
 5- Split dataset chronologically:
-
-80% → Training set
-
-20% → Test set
+    80% → Training set
+    20% → Test set
 
 --- 
 
@@ -240,25 +238,21 @@ An ensemble model with n_estimators=200, providing higher accuracy and robustnes
 
 ⚡ XGBoost Regressor
 
-A gradient boosting model optimized for performance:
-```python
-xgb.XGBRegressor(n_estimators=300, learning_rate=0.05, random_state=42)
-
-
+A gradient boosting model optimized for performance:  model = xgb.XGBRegressor(n_estimators=300, learning_rate=0.05, random_state=42)
+ 
 --- 
 
 📊 3. Model Evaluation
 
 Each model was evaluated using the following metrics:
 
-MAE — Mean Absolute Error
+* MAE — Mean Absolute Error
 
-RMSE — Root Mean Squared Error
+* RMSE — Root Mean Squared Error
 
-R² — Coefficient of Determination
+* R² — Coefficient of Determination
 
-Evaluation Function
-```python
+### Evaluation Function
 def evaluate_model(y_true, y_pred, model_name):
     mae = mean_absolute_error(y_true, y_pred)
     rmse = np.sqrt(mean_squared_error(y_true, y_pred))
@@ -266,6 +260,51 @@ def evaluate_model(y_true, y_pred, model_name):
     print(f"\n{model_name} Performance:")
     print(f"MAE:  {mae:.3f}")
     print(f"RMSE: {rmse:.3f}")
-    print(f"R²:   {r2:.3f}")
+    print(f"R²:   {r2:.3f}") ... ```
+
+| Model             | MAE    | RMSE   | R²       |
+| ----------------- | ------ | ------ | -------- |
+| Linear Regression | 0.0005 | 0.0006 | 0.999987 |
+| Random Forest     | 0.0002 | 0.0005 | 0.999991 |
+| XGBoost           | 0.0003 | 0.0005 | 0.999990 |
+
+---
+
+📉 4. Visualizations
+🔹 Actual vs Predicted Temperature
+
+Line plots comparing true vs predicted values for each model over time.
+
+🔹 7-Day Temperature Forecast
+
+Forecasts next 7 days of temperature using Random Forest:
+
+Assumes average values for non-temporal features.
+
+Plotted predicted temperatures over future dates.
+
+🔹 Model Comparison
+
+Overlayed predictions from all three models:
+
+Blue → Actual
+
+Orange → Random Forest
+
+Green → XGBoost
+
+🌟 5. Feature Importance (XGBoost)
+
+Bar chart ranking the most influential features in forecasting:
+
+feels_like_celsius
+
+humidity
+
+pressure_mb
+
+uv_index
+
+precip_mm
 
 
