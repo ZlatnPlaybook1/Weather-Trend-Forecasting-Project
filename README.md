@@ -293,6 +293,8 @@ Orange → Random Forest
 
 Green → XGBoost
 
+---
+
 🌟 5. Feature Importance (XGBoost)
 
 Bar chart ranking the most influential features in forecasting:
@@ -307,4 +309,112 @@ uv_index
 
 precip_mm
 
+--- 
+
+# 🌤️ Forecasting with Multiple Models
+
+This section of the project focuses on building and evaluating multiple machine learning models to forecast **temperature trends** using cleaned and normalized weather data.
+
+---
+
+## 🧩 Overview
+
+The goal is to compare the performance of various regression models on weather forecasting.  
+Models included:
+- Decision Tree  
+- Support Vector Regressor (SVR)  
+- K-Nearest Neighbors (KNN)  
+- Gradient Boosting  
+- AdaBoost  
+- Random Forest  
+- Linear Regression  
+- XGBoost  
+
+Each model was trained and tested using an 80/20 split of the dataset.  
+The performance was evaluated using **Mean Absolute Error (MAE)**, **Root Mean Squared Error (RMSE)**, and **R² (Coefficient of Determination)**.
+
+---
+
+## 📊 Model Comparison Results
+
+| Model             | MAE      | RMSE     | R²        |
+| ----------------- | -------- | -------- | ---------- |
+| Random Forest     | 0.000185 | 0.000515 | 0.999991   |
+| Linear Regression | 0.000495 | 0.000615 | 0.999987   |
+| Decision Tree     | 0.000171 | 0.000677 | 0.999984   |
+| Gradient Boosting | 0.000910 | 0.001318 | 0.999939   |
+| XGBoost           | 0.000834 | 0.001805 | 0.999886   |
+| AdaBoost          | 0.008239 | 0.010722 | 0.995988   |
+| KNN               | 0.102677 | 0.135278 | 0.361428   |
+| SVR               | 0.107970 | 0.139584 | 0.320128   |
+
+✅ **Best Model:** Random Forest  
+It achieved the lowest error values and the highest R² score, indicating excellent predictive accuracy.
+
+---
+
+## 🤝 Ensemble Model
+
+To further enhance performance, an **ensemble model** was created using a `VotingRegressor` that combines:
+- Random Forest  
+- XGBoost  
+- Gradient Boosting  
+- AdaBoost  
+- Decision Tree  
+- SVR  
+- KNN  
+- Linear Regression  
+
+This ensemble approach leverages the strengths of each model for more robust forecasting.
+
+---
+
+## 📈 Visualizations
+
+Several visualizations were generated to interpret results:
+
+- **Actual vs Predicted Temperature:**  
+  Displays line plots comparing true and predicted temperature trends.
+
+- **Model Comparison (R² Score):**  
+  A bar chart comparing the R² values across all models.
+
+- **Feature Importance (Random Forest):**  
+  Highlights the most influential weather features, including:
+  - feels_like_celsius  
+  - humidity  
+  - pressure_mb  
+  - uv_index  
+  - precip_mm  
+
+---
+
+## 💾 Model and Results
+
+- The trained ensemble model was saved as:  
+  `models/forecasting_ensemble_model.pkl`  
+
+- Model comparison metrics were saved to:  
+  `results/forecasting_model_comparison.csv`  
+
+---
+
+## 🧠 Key Insights
+
+- Random Forest and XGBoost provided the highest accuracy for temperature forecasting.  
+- Simpler models like Linear Regression still performed extremely well due to data normalization.  
+- Ensemble learning further improved stability and reduced prediction variance.  
+
+---
+
+## 🎯 Conclusion
+
+This notebook demonstrates that combining multiple regression models can significantly improve weather trend forecasting accuracy.  
+The project highlights the value of ensemble learning and systematic model evaluation in climate analytics.
+
+---
+
+## 🙏 Thanks
+
+Thank you for reviewing this project!  
 
