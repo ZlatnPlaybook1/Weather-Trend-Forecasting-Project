@@ -1,79 +1,87 @@
-🌦️ Weather Trend Forecasting
+# 🌦️ Weather Trend Forecasting
 
 This project focuses on analyzing global weather data to understand temperature patterns and forecast future trends using various data science and machine learning techniques.
+
+---
+
+## 📁 Project Structure
 
 Weather-Trend-Forecasting-Project/
 │
 ├── data/
-│   ├── GlobalWeatherRepository.csv
-│   └── cleaned_normalized_weather.csv
+│ ├── GlobalWeatherRepository.csv
+│ └── cleaned_normalized_weather.csv
 │
 ├── notebooks/
-│   ├── 01_data_cleaning_and_preprocessing.ipynb
-│   ├── 02_eda_visualization.ipynb
-│   ├── 03_forecasting_models.ipynb
-│   └── 04_advanced_analysis_and_insights.ipynb
+│ ├── 01_data_cleaning_and_preprocessing.ipynb
+│ ├── 02_eda_visualization.ipynb
+│ ├── 03_forecasting_models.ipynb
+│ └── 04_advanced_analysis_and_insights.ipynb
 │
 ├── models/
-│   ├── random_forest_model.pkl
-│   ├── linear_regression_model.pkl
-│   └── gradient_boosting_model.pkl
+│ ├── random_forest_model.pkl
+│ ├── linear_regression_model.pkl
+│ └── gradient_boosting_model.pkl
 │
 ├── results/
-│   ├── evaluation_metrics.csv
-│   └── forecast_visualizations/
+│ ├── evaluation_metrics.csv
+│ └── forecast_visualizations/
 │
 └── README.md
 
-🧹 1. Data Cleaning & Preprocessing
 
-Notebook: 01_data_cleaning_and_preprocessing.ipynb
+---
 
-Steps Performed:
-✅ Data Loading
+## 🧹 1. Data Cleaning & Preprocessing
 
-Imported the raw dataset GlobalWeatherRepository.csv using Pandas.
+**Notebook:** `01_data_cleaning_and_preprocessing.ipynb`
 
-Checked dataset structure, types, and missing values.
+### 🔹 Steps Performed
 
-🩺 Data Validation
+---
 
-No missing or duplicate values were detected.
+### ✅ Data Loading
+- Imported the raw dataset **`GlobalWeatherRepository.csv`** using **Pandas**.  
+- Checked dataset structure, data types, and missing values.  
 
-Converted last_updated to datetime format for temporal analysis.
+---
 
-📊 Basic Statistics
+### 🩺 Data Validation
+- No missing or duplicate values were detected.  
+- Converted the `last_updated` column to **datetime** format for temporal analysis.  
 
-Calculated:
+---
 
-Max Temperature
+### 📊 Basic Statistics
+Calculated the following metrics to summarize the dataset:
+- **Maximum Temperature (°C)**
+- **Minimum Temperature (°C)**
+- **Mean Temperature (°C)**
+- **Average Temperature per Country per Year**
 
-Min Temperature
+---
 
-Mean Temperature
+### 📦 Column Classification
+Identified key feature types:
+- **Numerical columns:** temperature, humidity, pressure, etc.  
+- **Categorical columns:** city, country, region, etc.  
 
-Average temperature per country per year
+---
 
-📦 Column Classification
+### ⚠️ Outlier Detection & Removal
+- Used the **Interquartile Range (IQR)** method to detect and remove outliers in numerical columns.  
+- Visualized distributions **before and after cleaning** using **boxplots** for comparison.  
 
-Identified:
+---
 
-Numerical columns: temperature, humidity, pressure, etc.
+### 🔄 Normalization
+- Applied **Min-Max Scaling** to normalize all numerical columns (range: `0–1`).  
+- Applied **Label Encoding** to transform categorical columns into numeric form for model compatibility.  
 
-Categorical columns: city, country, region, etc.
+---
 
-⚠️ Outlier Detection & Removal
+### 💾 Final Output
+- Exported the cleaned and normalized dataset to:
+- data/cleaned_normalized_weather.csv
+- - This dataset serves as the foundation for **EDA** and **forecasting models** developed in later notebooks.
 
-Used IQR (Interquartile Range) to detect and remove outliers in numerical columns.
-
-Visualized before and after cleaning using boxplots.
-
-🔄 Normalization
-
-Applied Min-Max Scaling to normalize numerical columns (range: 0–1).
-
-Applied Label Encoding to transform categorical columns into numerical format.
-
-💾 Final Output
-
-Exported cleaned and normalized dataset to:
